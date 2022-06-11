@@ -1,0 +1,37 @@
+﻿@model LapTrinhWebDatTourDuLich.Models.Table_LoaiVanChuyen
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Loại vận chuyển</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="LoaiVanChuyen">Loại vận chuyển: </label>
+            @*@Html.LabelFor(model => model.LoaiVanChuyen, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.LoaiVanChuyen, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.ValidationMessageFor(model => model.LoaiVanChuyen, "", new { @class = "text-danger" })
+            <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phải nhập loại vận chuyển!" id="LoaiVanChuyen" name="LoaiVanChuyen" type="number" value="" aria-describedby="LoaiVanChuyen-error" aria-invalid="true"> @ViewData["NhapLoaiVanChuyen"]
+        </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Thêm" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Trở về danh sách loại vận chuyển", "ListLoaiVanChuyen", "LoaiVanChuyen")
+</div>

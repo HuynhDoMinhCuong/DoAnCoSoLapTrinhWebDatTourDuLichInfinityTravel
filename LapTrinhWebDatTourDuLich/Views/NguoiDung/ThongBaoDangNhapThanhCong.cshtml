@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ThongBaoDangNhapThanhCong";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đăng nhập thành công!</h2>
+
+@if (Session["TaiKhoanDangNhap"] != null)
+            {
+                <h4> Chào! @Session["HoTenKH"].ToString() </h4>
+            }
+
+
+<h3></h3>
+<p>
+    @Html.ActionLink("Quay lại trang chủ", "Index", "Home")
+</p>

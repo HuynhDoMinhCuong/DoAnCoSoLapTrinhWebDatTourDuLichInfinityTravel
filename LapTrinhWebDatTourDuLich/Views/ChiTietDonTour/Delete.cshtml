@@ -1,0 +1,35 @@
+﻿@model LapTrinhWebDatTourDuLich.Models.Table_ChiTietDonTour
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xoá</h2>
+
+<h3>Bạn có chắc muốn xoá đơn tour này?</h3>
+
+<div>
+    <h4>Tour</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+
+        <dd class="display-label"><b> Mã đơn tour: </b> @Model.MaDonTour</dd>
+        <dd class="display-label"><b> Mã tour: </b> @Model.MaTour</dd>
+        <dd class="display-label"><b> Số vé: </b> @Model.SoVe</dd>
+        <dd class="display-label"><b> Giá đơn tour: </b> @String.Format("{0:0,0}", Model.GiaDonTour) VNĐ </dd> 
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xoá" class="btn btn-default" /> |
+            @Html.ActionLink("Trở về trang chi tiết đơn tour", "ListChiTietDonTour", "ChiTietDonTour")
+        </div>
+    }
+</div>

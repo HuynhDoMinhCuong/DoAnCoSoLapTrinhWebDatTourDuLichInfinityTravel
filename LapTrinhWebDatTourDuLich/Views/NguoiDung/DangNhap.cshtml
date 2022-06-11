@@ -1,0 +1,54 @@
+﻿@model LapTrinhWebDatTourDuLich.Models.Table_KhachHang
+
+@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đăng nhập</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Khách hàng</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="TenDangNhap">Tên đăng nhập: </label>
+            @*@Html.LabelFor(model => model.TenDangNhap, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @* @Html.EditorFor(model => model.TaiKhoanDangNhap, new { htmlAttributes = new { @class = "form-control" } }) *@
+            @Html.ValidationMessageFor(model => model.TaiKhoanDangNhap, "", new { @class = "text-danger" })
+            <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phải nhập tài khoản đăng nhập!" id="TaiKhoanDangNhap" name="TaiKhoanDangNhap" type="text" value="" aria-describedby="TaiKhoanDangNhap-error" aria-invalid="true"> @ViewData["NhapTaiKhoan"]
+        </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="MatKhau">Mật khẩu: </label>
+            @*@Html.LabelFor(model => model.MatKhau, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @* @Html.PasswordFor(model => model.MatKhauDangNhap, new { htmlAttributes = new { @class = "form-control" } }) *@
+            @Html.ValidationMessageFor(model => model.MatKhauDangNhap, "", new { @class = "text-danger" })
+            <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phải nhập mật khẩu đăng nhập!" id="MatKhauDangNhap" name="MatKhauDangNhap" type="password" value="" aria-describedby="MatKhauDangNhap-error" aria-invalid="true"> @ViewData["NhapMatKhau"]
+        </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Đăng nhập" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+<div>
+    @Html.ActionLink("Trở về trang chủ", "Index", "Home")
+</div>
+
+

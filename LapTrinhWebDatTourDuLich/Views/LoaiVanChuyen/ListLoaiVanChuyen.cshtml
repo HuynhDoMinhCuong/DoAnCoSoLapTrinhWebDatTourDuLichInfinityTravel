@@ -1,0 +1,42 @@
+﻿@model IEnumerable<LapTrinhWebDatTourDuLich.Models.Table_LoaiVanChuyen>
+@{
+    ViewBag.Title = "ListLoaiVanChuyen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách loại vận chuyển</h2>
+
+@*Tìm kiếm theo loại vận chuyển*@
+@using (Html.BeginForm())
+{
+    <p></p>
+    <div class="form-group form-inline">
+        <input placeholder="Tìm kiếm loại vận chuyển" type="text" name="TimKiemLoaiVanChuyen" class="form-control form-inline" />
+        <input type="submit" value="Tìm kiếm" class="form-control" />
+    </div>
+
+}
+
+<table border="1px">
+    <tr>
+        <th>Mã vận chuyển</th>
+        <th>Loại vận chuyển</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaVanChuyen</td>
+            <td>@item.LoaiVanChuyen</td>
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaVanChuyen }) |
+                @Html.ActionLink("Chi tiết", "Detail", new { id = item.MaVanChuyen }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.MaVanChuyen })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Thêm loại vận chuyển mới", "Create", "LoaiVanChuyen")
+<div>
+    @Html.ActionLink("Trở về trang chủ", "Index", "Home")
+</div>

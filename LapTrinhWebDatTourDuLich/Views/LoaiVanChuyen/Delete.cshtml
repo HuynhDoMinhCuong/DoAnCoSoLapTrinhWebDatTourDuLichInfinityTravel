@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xoá</h2>
+
+<h3>Bạn có chắc muốn xoá thông tin loại vận chuyển này?</h3>
+
+<fieldset>
+    <div class="display-label">Mã vận chuyển: @Model.MaVanChuyen</div>
+    <div class="display-label">Loại vận chuyển: @Model.LoaiVanChuyen</div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" value="Xoá" />
+
+        @Html.ActionLink("Trở về danh sách loại vận chuyển", "ListLoaiVanChuyen")
+    </p>
+
+}

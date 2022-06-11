@@ -1,0 +1,108 @@
+﻿@model LapTrinhWebDatTourDuLich.Models.Table_Tour
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết tour</h2>
+
+<tr>
+    <td><img src="@Model.Hinh" alt="hinh thumbnail" /></td>
+</tr>
+@*
+    <div>
+        <h4>Tour</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.MaVanChuyen)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaVanChuyen)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TenTour)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenTour)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NoiKhoiHanh)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoiKhoiHanh)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NgayKhoiHanh)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NgayKhoiHanh)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ThoiGian)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ThoiGian)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GiaTour)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GiaTour)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SoChoConNhan)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoChoConNhan)
+            </dd>
+
+            <dd>
+                <img src=" @Html.DisplayFor(model => model.Hinh)" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TourNayCoGiHay)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TourNayCoGiHay)
+            </dd>
+
+
+        </dl>
+    </div>*@
+
+<h3>Thông tin chi tiết</h3>
+
+<fieldset>
+    <div class="display-label"> <b> Mã vận chuyển: </b> @Model.MaVanChuyen</div>
+    <div class="display-label"> <b> Loại vận chuyển: </b> @Model.Table_LoaiVanChuyen.LoaiVanChuyen</div>
+    <div class="display-label"><b> Tên tour: </b> @Model.TenTour</div>
+    <div class="display-label"><b> Nơi khởi hành: </b> @Model.NoiKhoiHanh</div>
+    <div class="display-label"><b> Ngày khởi hành: </b> @String.Format("{0:dd/MM/yyyy}", Model.NgayKhoiHanh)</div>
+    <div class="display-label"><b> Thời gian: </b> @Model.ThoiGian</div>
+    @*<div class="display-label"><b> Giá Tour: </b>@Model.GiaTour</div>*@
+    <div class="display-label"><b> Giá Tour: </b> @String.Format("{0:0,0}", Model.GiaTour) VNĐ </div>
+    <div class="display-label"><b> Tour này có gì hay: </b>@Model.TourNayCoGiHay</div>
+    <div class="display-label"><b> Hình: </b> @Model.Hinh</div>
+
+</fieldset>
+
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaTour }) |
+    @Html.ActionLink("Trở về danh sách tour", "ListTour")
+</p>

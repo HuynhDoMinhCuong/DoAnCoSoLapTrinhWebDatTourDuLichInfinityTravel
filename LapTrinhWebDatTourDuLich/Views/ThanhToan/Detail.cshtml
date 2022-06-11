@@ -1,0 +1,36 @@
+﻿@model LapTrinhWebDatTourDuLich.Models.Table_ThanhToan
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết thanh toán</h2>
+
+
+<fieldset>
+    <div class="display-label"> <b> Mã thanh toán: </b> @Model.MaThanhToan</div>
+    <div class="display-label"> <b> Mã KH: </b> @Model.MaKH</div>
+    <div class="display-label"> <b> Họ tên KH: </b> @Model.Table_KhachHang.HoTenKH</div>
+    <div class="display-label"> <b> Ngày sinh: </b> @Model.Table_KhachHang.NgaySinh</div>
+    <div class="display-label"> <b> Email: </b> @Model.Table_KhachHang.Email</div>
+    <div class="display-label"> <b> DiaChi: </b> @Model.Table_KhachHang.DiaChi</div>
+    <div class="display-label"> <b> SoDienThoai: </b> @Model.Table_KhachHang.SoDienThoai</div>
+    <div class="display-label"> <b> Mã đơn tour: </b> @Model.MaDonTour</div>
+    <div class="display-label"> <b> Mã tour: </b> @Model.MaTour</div>
+    <div class="display-label"> <b> Tên tour: </b> @Model.Table_Tour.TenTour</div>
+    <div class="display-label"> <b> Nơi khởi hành: </b> @Model.Table_Tour.NoiKhoiHanh</div>
+    <div class="display-label"> <b> Ngày khởi hành: </b> @String.Format("{0:0,0}", Model.Table_Tour.NgayKhoiHanh)</div>
+    <div class="display-label"> <b> Thời gian: </b> @Model.Table_Tour.ThoiGian</div>
+    <div class="display-label"> <b> Giá Tour: </b> @String.Format("{0:0,0}", Model.Table_Tour.GiaTour) VNĐ </div>
+    <div class="display-label"> <b> Tổng số tiền phải thanh toán: </b> @String.Format("{0:0,0}", Model.TongSoTienPhaiThanhToan) VNĐ </div>
+    <div class="display-label"> <b> Số tiền đã thanh toán: </b> @String.Format("{0:0,0}", Model.SoTienDaThanhToan) VNĐ </div>
+    <div class="display-label"> <b> Ghi chú: </b> @Model.GhiChu</div>
+
+</fieldset>
+
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaThanhToan }) |
+    @Html.ActionLink("Trở về danh sách thanh toán", "ListThanhToan")
+</p>
+
+

@@ -1,0 +1,126 @@
+﻿@model LapTrinhWebDatTourDuLich.Models.Table_KhachHang
+
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đăng ký</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <h4>Khách hàng</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="TenDangNhap">Tài khoản đăng nhập: </label>
+                @*@Html.LabelFor(model => model.TaiKhoanDangNhap, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+               @* @Html.EditorFor(model => model.TaiKhoanDangNhap, new { htmlAttributes = new { @class = "form-control" } }) *@
+                @Html.ValidationMessageFor(model => model.TaiKhoanDangNhap, "", new { @class = "text-danger" })
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phải nhập tài khoản đăng nhập!" id="TaiKhoanDangNhap" name="TaiKhoanDangNhap" type="text" value="" aria-describedby="TaiKhoanDangNhap-error" aria-invalid="true"> @ViewData["NhapTaiKhoan"] 
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="MatKhau">Mật khẩu: </label>
+                @*@Html.LabelFor(model => model.MatKhauDangNhap, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @*   @Html.PasswordFor(model => model.MatKhauDangNhap, new { htmlAttributes = new { @class = "form-control" } }) *@
+                @Html.ValidationMessageFor(model => model.MatKhauDangNhap, "", new { @class = "text-danger" })
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phải nhập mật khẩu đăng nhập!" id="MatKhauDangNhap" name="MatKhauDangNhap" type="password" value="" aria-describedby="MatKhauDangNhap-error" aria-invalid="true"> @ViewData["NhapMatKhau"]
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="MatKhauXacNhan">Mật khẩu xác nhận: </label>
+                <div class="col-md-10">
+                    <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phải nhập mật khẩu xác nhận!" id="MatKhauXacNhan" name="MatKhauXacNhan" type="password" value="" aria-describedby="MatKhauXacNhan-error" aria-invalid="true"> @ViewData["NhapMKXN"] @ViewData["MatKhauGiongNhau"]
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="HoTenKH">Họ tên: </label>
+                @*@Html.LabelFor(model => model.HoTenKH, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @*  @Html.EditorFor(model => model.HoTenKH, new { htmlAttributes = new { @class = "form-control" } }) *@
+                @Html.ValidationMessageFor(model => model.HoTenKH, "", new { @class = "text-danger" })
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phải nhập họ tên!" id="HoTenKH" name="HoTenKH" type="text" value="" aria-describedby="HoTenKH-error" aria-invalid="true"> @ViewData["NhapHoTenKH"]
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="NgaySinh">Ngày sinh: </label>
+                @*@Html.LabelFor(model => model.NgaySinh, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @* @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control" } }) *@
+                @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phải nhập ngày sinh!" id="NgaySinh" name="NgaySinh" type="date" value="" aria-describedby="NgaySinh-error" aria-invalid="true"> @ViewData["NhapNgaySinh"]
+            </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @* @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } }) *@
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phải nhập Email!" id="Email" name="Email" type="text" value="" aria-describedby="Email-error" aria-invalid="true"> @ViewData["NhapEmail"]
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="DiaChi">Địa chỉ: </label>
+                @*@Html.LabelFor(model => model.DiaChi, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @* @Html.EditorFor(model => model.DiaChi, new { htmlAttributes = new { @class = "form-control" } }) *@
+                @Html.ValidationMessageFor(model => model.DiaChi, "", new { @class = "text-danger" })
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phải nhập địa chỉ!" id="DiaChi" name="DiaChi" type="text" value="" aria-describedby="DiaChi-error" aria-invalid="true"> @ViewData["NhapDiaChi"]
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2" for="SoDienThoai">Số điện thoại: </label>
+                @*@Html.LabelFor(model => model.SoDienThoai, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @*   @Html.EditorFor(model => model.SoDienThoai, new { htmlAttributes = new { @class = "form-control" } }) *@
+                @Html.ValidationMessageFor(model => model.SoDienThoai, "", new { @class = "text-danger" })
+                <input class="form-control text-box single-line input-validation-error" data-val="true" data-val-required="Phải nhập số điện thoại và phải đủ 10 số!" maxlength="10" id="SoDienThoai" name="SoDienThoai" type="text" value="" aria-describedby="SoDienThoai-error" aria-invalid="true"> @ViewData["NhapSoDienThoai"]
+            </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Đăng ký" class="btn btn-default" />
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    @*<script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+    function sendEmail(){
+        Email.send({
+            Host: "smtp.yourisp.com",
+            Username: "username",
+            Password: "password",
+            To: 'them@website.com',
+            From: "you@isp.com",
+            Subject: "This is the subject",
+            Body: "And this is the body"
+        }).then(
+            message => alert(message)
+        );
+    }
+    </script> *@
+}
+
+<div>
+    @Html.ActionLink("Trở về trang chủ", "Index", "Home")
+</div>

@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                 @Html.ActionLink("Trang chủ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }) 
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
+                      <li>@Html.ActionLink("About", "About", "Home")</li>
+                      <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+
+                    <li>@Html.Partial("~/Views/DonTour/DonTourPartial.cshtml")</li>
+
+                    @if (Session["TaiKhoanDangNhap"] != null)
+                    {
+                        @Html.Partial("_LoginNguoiDung")
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Đăng ký(KH)", "DangKy", "NguoiDung")</li>
+                        <li>@Html.ActionLink("Đăng nhập(KH)", "DangNhap", "NguoiDung")</li>
+                    }
+
+                    @*<li>
+                      <p></p>
+                        <div class="form-group form-inline">
+                        <input placeholder="Tìm kiếm tour"@Html.TextBox("TimKiemTour", "", new { @class="form-control"})/>
+                        <input type="submit" class="btn btn-default" value="Tìm kiếm"/>
+                        </div>
+                      </li>*@
+
+                    @*<li>@Html.ActionLink("Danh Sách Loại vận chuyển", "ListLoaiVanChuyen", "LoaiVanChuyen")</li>
+                      <li>@Html.ActionLink("Danh sách tour", "ListTour", "Tour")</li>
+                      <li>@Html.ActionLink("Chi tiết đơn tour", "ListChiTietDonTour", "ChiTietDonTour")</li>*@
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Công ty du lịch INFINITY TRAVEL </p>
+            <p>- Địa chỉ: D10, Xã Bình Chánh, Huyện Bình Chánh, TP.HCM </p>
+            <p>- Số điện thoại: 0342962649 </p>
+            <p>- Giám đốc: Huỳnh Đỗ Minh Cường </p>
+
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    @RenderSection("upload", required: false)
+
+    @Styles.Render("~/Content/Site.css")
+
+</body>
+</html>

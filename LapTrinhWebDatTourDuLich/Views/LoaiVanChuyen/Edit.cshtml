@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chỉnh sửa loại vận chuyển</h2>
+
+
+@using (Html.BeginForm())
+{@Html.ValidationSummary(true)
+<fieldset>
+
+
+
+    <div class="editor-field">
+        Loại vận chuyển : @Html.TextBox("LoaiVanChuyen") @ViewData["Error"]
+    </div>
+
+    <p>
+        <input type="submit" value="Lưu" />
+    </p>
+</fieldset>
+
+
+}
+<div>
+    @Html.ActionLink("Trở về danh sách loại vận chuyển", "ListLoaiVanChuyen")
+</div>

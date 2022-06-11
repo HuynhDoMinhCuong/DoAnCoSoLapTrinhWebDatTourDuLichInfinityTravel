@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết loại vận chuyển</h2>
+<fieldset>
+    <div class="display-label">Mã vận chuyển: @Model.MaVanChuyen</div>
+    <div class="display-label">Loại vận chuyển: @Model.LoaiVanChuyen</div>
+</fieldset>
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.ActionLink("Xoá", "Delete", new { id = Model.MaVanChuyen }) |
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaVanChuyen }) |
+        @Html.ActionLink("Trở về danh sách loại vận chuyển", "ListLoaiVanChuyen")
+    </p>
+}
+

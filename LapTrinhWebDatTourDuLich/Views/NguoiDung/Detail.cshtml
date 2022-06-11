@@ -1,0 +1,24 @@
+﻿@model LapTrinhWebDatTourDuLich.Models.Table_KhachHang
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi tiết khách hàng</h2>
+
+
+<fieldset>
+    <div class="display-label"> <b> Tài khoản đăng nhập: </b> @Model.TaiKhoanDangNhap</div>
+    <div class="display-label"><b> Họ tên khách hàng: </b> @Model.HoTenKH</div>
+    <div class="display-label"><b> Ngày sinh: </b> @String.Format("{0:dd/MM/yyyy}", Model.NgaySinh)</div>
+    <div class="display-label"><b> Email: </b> @Model.Email</div>
+    <div class="display-label"><b> Địa chỉ: </b> @Model.DiaChi</div>
+    <div class="display-label"><b> Số điện thoại: </b> @Model.SoDienThoai</div>
+
+</fieldset>
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.MaTour }) |*@
+    @Html.ActionLink("Trở về danh sách khách hàng", "ListNguoiDung", "NguoiDung")
+</p>
+

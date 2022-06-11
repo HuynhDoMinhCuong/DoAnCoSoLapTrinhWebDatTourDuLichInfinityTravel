@@ -1,0 +1,93 @@
+﻿@model IEnumerable<LapTrinhWebDatTourDuLich.Models.Table_ThanhToan>
+@{
+    ViewBag.Title = "ListThanhToan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách thanh toán</h2>
+
+@*Tìm kiếm theo mã khách hàng*@
+@using (Html.BeginForm())
+{
+    <p></p>
+    <div class="form-group form-inline">
+        <input placeholder="Tìm kiếm mã khách hàng" type="text" name="TimKiemMaKhachHang" class="form-control form-inline" />
+        <input type="submit" value="Tìm kiếm" class="form-control" />
+    </div>
+
+}
+
+
+
+<p>
+    @Html.ActionLink("Thêm hoá đơn thanh toán mới", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th> Mã thanh toán </th>
+        <th> Mã KH </th>
+        <th> Họ tên KH </th>
+        <th> Ngày sinh </th>
+        <th> Email </th>
+        <th> Địa chỉ </th>
+        <th> Số điện thoại </th>
+        <th> Ngày đặt tour </th>
+        <th> Loại vận chuyển </th>
+        <th> Mã đơn tour </th>
+        <th> Mã tour </th>
+        <th> Tên tour </th>
+        <th> Nơi khởi hành </th>
+        <th> Ngày khởi hành </th>
+        <th> Thời gian </th>
+        <th> Giá tour </th>
+        <th> Tổng số tiền phải thanh toán </th>
+        <th> Số tiền đã thanh toán </th>
+        <th> Ghi chú </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.MaThanhToan)</td>
+            <td>@Html.DisplayFor(modelItem => item.MaKH)</td>
+            <td>@Html.DisplayFor(modelItem => item.Table_KhachHang.HoTenKH)</td>
+            <td>@String.Format("{0:dd/MM/yyyy}", item.Table_KhachHang.NgaySinh)</td>
+            <td>@Html.DisplayFor(modelItem => item.Table_KhachHang.Email)</td>
+            <td>@Html.DisplayFor(modelItem => item.Table_KhachHang.DiaChi)</td>
+            <td>@Html.DisplayFor(modelItem => item.Table_KhachHang.SoDienThoai)</td>
+            <td>@String.Format("{0:dd/MM/yyyy}", item.Table_DonTour.NgayDatTour)</td>
+            <td>@Html.DisplayFor(modelItem => item.Table_Tour.Table_LoaiVanChuyen.LoaiVanChuyen)</td>
+            <td>@Html.DisplayFor(modelItem => item.MaDonTour)</td>
+            <td>@Html.DisplayFor(modelItem => item.MaTour)</td>
+            <td>@Html.DisplayFor(modelItem => item.Table_Tour.TenTour)</td>
+            <td>@Html.DisplayFor(modelItem => item.Table_Tour.NoiKhoiHanh)</td>
+            <td>@String.Format("{0:dd/MM/yyyy}", item.Table_Tour.NgayKhoiHanh)</td>
+            <td>@Html.DisplayFor(modelItem => item.Table_Tour.ThoiGian)</td>
+            <td>@String.Format("{0:0,0}", item.Table_Tour.GiaTour) VNĐ </td>
+            <td>@String.Format("{0:0,0}", item.TongSoTienPhaiThanhToan) VNĐ </td>
+            <td>@String.Format("{0:0,0}", item.SoTienDaThanhToan) VNĐ </td>
+            <td>@Html.DisplayFor(modelItem => item.GhiChu)</td>
+
+            <td>
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaThanhToan }) |
+                @Html.ActionLink("Chi tiết", "Detail", new { id = item.MaThanhToan }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.MaThanhToan })
+            </td>
+        </tr>
+    }
+
+    <tr style="font-weight:bold; text-align:right; color:blue">
+        <td colspan="16">
+            Tổng chi phí: @String.Format("{0:0,0}", Model.Sum(i => i.SoTienDaThanhToan)) VNĐ
+        </td>
+    </tr>
+
+</table>
+
+
+<div>
+    <p>
+        @Html.ActionLink("Trở về trang chủ", "Index", "Home")
+    </p>
+</div>

@@ -1,0 +1,23 @@
+﻿
+
+@{
+    ViewBag.Title = "XacnhanDontour";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Đơn tour của bạn đã được xác nhận!</h2>
+
+<h3>Chúng tôi sẽ liên hệ lại cho bạn để xác nhận thanh toán!</h3>
+
+<h4>Bạn có thể thanh toán trực tiếp tại công ty du lịch INFINITY TRAVEL hoặc chuyển khoản qua tài khoản ngân hàng, ví điện tử MOMO. </h4>
+
+<div class="form-group">
+    <div class="bg-danger">
+        @Html.ActionLink(" Nhấn vào đây để thanh toán trực tuyến ", "ThanhToanTrucTuyen", "DonTour")
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Về trang chủ", "Index", "Home")
+</p>
+
