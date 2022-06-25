@@ -25,6 +25,7 @@ namespace LapTrinhWebDatTourDuLich.Controllers
 
                 return View(TenTour.ToPagedList(pageNum, pageSize));
             }
+
                else if (page == null) page = 1;
             {
                 var all_tour = (from t in data.Table_Tours select t).OrderBy(m => m.MaTour);
@@ -58,5 +59,6 @@ namespace LapTrinhWebDatTourDuLich.Controllers
 
             return View();
         }
+       
     }
 }

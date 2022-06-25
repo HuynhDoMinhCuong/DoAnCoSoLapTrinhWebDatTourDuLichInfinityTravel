@@ -134,9 +134,11 @@
                     @item.TenTour
                 </div>
                 <div class="panel-body">
+
+                    <p><strong>Mã tour: </strong>@item.MaTour</p>
                     <p><strong>Loại vận chuyển: </strong>@item.Table_LoaiVanChuyen.LoaiVanChuyen</p>
                     <p><strong>Nơi khởi hành: </strong>@item.NoiKhoiHanh)</p>
-                    <p><strong>Ngày khởi hành: </strong>@String.Format("{0: dd/MM/yyyy}", item.NgayKhoiHanh)</p> 
+                    <p><strong>Ngày khởi hành: </strong>@String.Format("{0: dd/MM/yyyy}", item.NgayKhoiHanh)</p>
                     <p><strong>Thời gian: </strong>@item.ThoiGian</p>
                     <p><strong>Giá tour: </strong> @String.Format("{0:0,0}", item.GiaTour) VNĐ</p>        @*//Format giá tour*@
                     @*        <p><strong>Số chỗ còn nhận: </strong>@item.SoChoConNhan</p> *@
@@ -153,6 +155,8 @@
                                     new { @id = item.MaTour, @strURL = Request.Url.ToString() })">Đặt tour</a>
 
                             @Html.ActionLink("Chi tiết", "Detail", new { id = item.MaTour }, new { @class = "btn btn-default" })
+                          
+                           @* @Html.ActionLink("Giới thiệu", "GioiThieuTour", new { id = item.MaTour }, new { @class = "btn btn-default" }) *@
 
                         </div>
 

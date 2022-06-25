@@ -30,6 +30,12 @@ body {
 .dl-horizontal dt {
     white-space: normal;
 }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,

@@ -1,6 +1,6 @@
 ﻿
 .navbar-inverse {
-    background-color: blueviolet;
+    background-color: black;
     border-color: black;
 }
 
@@ -15,7 +15,7 @@ h3, .h3 {
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-image: linear-gradient(white, pink, white);
+    background-image: linear-gradient(white, white, white);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -29,6 +29,12 @@ body {
 */
 .dl-horizontal dt {
     white-space: normal;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */

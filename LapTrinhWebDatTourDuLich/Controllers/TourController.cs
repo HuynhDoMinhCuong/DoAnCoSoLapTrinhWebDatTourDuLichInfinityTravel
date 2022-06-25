@@ -137,7 +137,7 @@ namespace LapTrinhWebDatTourDuLich.Controllers
             var E_ngaykhoihanh = Convert.ToDateTime(collection["ngaykhoihanh"]);
             var E_thoigian = collection["thoigian"];
             var E_giatour = Convert.ToDecimal(collection["giatour"]);
-            var E_sochoconnhan = Convert.ToInt32(collection["sochoconnhan"]);
+        //  var E_sochoconnhan = Convert.ToInt32(collection["sochoconnhan"]);
             var E_tournaycogihay = collection["tournaycogihay"];
             var E_hinh = collection["hinh"];
 
@@ -153,7 +153,7 @@ namespace LapTrinhWebDatTourDuLich.Controllers
                 E_tour.NgayKhoiHanh = E_ngaykhoihanh;
                 E_tour.ThoiGian = E_thoigian;
                 E_tour.GiaTour = E_giatour;
-           //     E_tour.SoChoConNhan = E_sochoconnhan;
+           //   E_tour.SoChoConNhan = E_sochoconnhan;
                 E_tour.TourNayCoGiHay = E_tournaycogihay;
                 E_tour.Hinh = E_hinh;
 

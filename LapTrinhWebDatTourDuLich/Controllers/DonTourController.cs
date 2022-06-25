@@ -1,6 +1,7 @@
 ﻿using LapTrinhWebDatTourDuLich.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -143,30 +144,46 @@ namespace LapTrinhWebDatTourDuLich.Controllers
             return View(listDontour);
         }
 
+        // Đặt tour
         public ActionResult DatTour(FormCollection collection)
         {
             Table_DonTour dt = new Table_DonTour();
+
+            Table_ChiTietDonTour ctdt = new Table_ChiTietDonTour();
+
             Table_KhachHang kh = (Table_KhachHang)Session["TaiKhoanDangNhap"];
             Table_Tour s = new Table_Tour();
 
             List<DonTour> gh = Laydontour();
             var ngaygiao = String.Format("{0:dd/MM/yyyy}", collection["NgayGiao"]);
-
+   
+            
             dt.MaKH = kh.MaKH;
-          //dt.ThanhToan = false;
-          //dt.GiaoTour = false;
-            dt.NgayDatTour = DateTime.Now;
-          //dt.ngaygiao = DateTime.Parse(ngaygiao);
+
+            ctdt.NgayDatTour = DateTime.Now;
+
+            //dt.ThanhToan = false;
+            //dt.GiaoTour = false;
+
+             dt.NgayDatTour = DateTime.Now;
+
+
+            //dt.ngaygiao = DateTime.Parse(ngaygiao);
 
 
             data.Table_DonTours.InsertOnSubmit(dt);
+
+           // data.Table_ChiTietDonTours.InsertOnSubmit(ctdt);
+
             data.SubmitChanges();
+
             foreach (var item in gh)
             {
                 Table_ChiTietDonTour ctdh = new Table_ChiTietDonTour();
                 ctdh.MaDonTour = dt.MaDonTour;
                 ctdh.MaTour = item.MaTour;
                 ctdh.SoVe = item.iSoVe;
+                ctdh.NgayDatTour = dt.NgayDatTour;
 
                 ctdh.GiaDonTour = (decimal)item.dThanhtien; // Chú ý giá tổng tiền 
 
@@ -192,5 +209,21 @@ namespace LapTrinhWebDatTourDuLich.Controllers
         {
             return View();
         }
+
+
+        //-------------ListTour-------------------
+        [Authorize]
+        public ActionResult ListDonTour()
+        {
+         
+            
+            {
+                var all_dontour = from dt in data.Table_DonTours select dt;
+                return View(all_dontour);
+            }
+
+        }
+
+
     }
 }

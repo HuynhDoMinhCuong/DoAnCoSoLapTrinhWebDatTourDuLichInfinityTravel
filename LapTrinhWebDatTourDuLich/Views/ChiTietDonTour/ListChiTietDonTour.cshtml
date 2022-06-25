@@ -11,11 +11,48 @@
 {
     <p></p>
     <div class="form-group form-inline">
-        <input placeholder="Tìm kiếm mã tour " type="text" name="TimKiemMaTour" class="form-control form-inline" />
-        <input type="submit" value="Tìm kiếm" class="form-control" />
+        <input placeholder="Tìm kiếm theo mã tour " type="text" name="TimKiemMaTour" class="form-control form-inline" />
+        <input type="submit" value="Tìm kiếm theo mã tour" class="form-control" />
     </div>
 
 }
+
+@*Tìm kiếm theo ngày*@
+@using (Html.BeginForm())
+{
+    <p></p>
+    <div class="form-group form-inline">
+        <input placeholder="Tìm kiếm theo ngày" type="date" name="TimKiemTheoNgay" class="form-control form-inline" />
+        <input type="submit" value="Tìm kiếm theo ngày, thống kê" class="form-control" />
+    </div>
+
+}
+
+@*Tìm kiếm theo tháng*@
+@using (Html.BeginForm())
+{
+    <p></p>
+    <div class="form-group form-inline">
+        <input placeholder="Tìm kiếm theo tháng" type="month" name="TimKiemTheoThang" class="form-control form-inline" />
+        <input type="submit" value="Tìm kiếm theo tháng, thống kê" class="form-control" />
+    </div>
+
+}
+
+@*Tìm kiếm theo năm*@
+@using (Html.BeginForm())
+{
+    <p></p>
+    <div class="form-group form-inline">
+        <input placeholder="Tìm kiếm theo năm" type="text" name="TimKiemTheoNam" class="form-control form-inline" />
+        <input type="submit" value="Tìm kiếm theo năm, thống kê" class="form-control" />
+    </div>
+
+}
+
+
+
+
 
 
 <table class="table">
@@ -37,6 +74,7 @@
         <th> Giá tour </th>
         <th> Số vé </th>
         <th> Tổng giá đơn tour </th>
+        <th> Ghi chú </th>
 
 
         <th></th>
@@ -50,7 +88,7 @@
             <td>@Html.DisplayFor(modelItem => item.Table_DonTour.Table_KhachHang.Email)</td>
             <td>@Html.DisplayFor(modelItem => item.Table_DonTour.Table_KhachHang.DiaChi)</td>
             <td>@Html.DisplayFor(modelItem => item.Table_DonTour.Table_KhachHang.SoDienThoai)</td>
-            <td>@String.Format("{0:dd/MM/yyyy}", item.Table_DonTour.NgayDatTour)</td>
+            <td>@String.Format("{0:dd/MM/yyyy}", item.NgayDatTour)</td>
             <td>@Html.DisplayFor(modelItem => item.Table_Tour.Table_LoaiVanChuyen.LoaiVanChuyen)</td>
             <td>@Html.DisplayFor(modelItem => item.MaDonTour)</td>
             <td>@Html.DisplayFor(modelItem => item.MaTour)</td>
@@ -61,23 +99,29 @@
             <td>@String.Format("{0:0,0}", item.Table_Tour.GiaTour) VNĐ </td>
             <td>@Html.DisplayFor(modelItem => item.SoVe)</td>
             <td>@String.Format("{0:0,0}", item.GiaDonTour) VNĐ </td>
+            <td>@Html.DisplayFor(modelItem => item.GhiChu)</td>
 
             <td>
-
-
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaTour }) |
                 @Html.ActionLink("Xoá", "Delete", new { id = item.MaTour })
             </td>
+
         </tr>
+
     }
 
 
+
+    <tr style="font-weight:bold; text-align:right; color:blue">
+        <td colspan="16">
+            Tổng chi phí: @String.Format("{0:0,0}", Model.Sum(i => i.GiaDonTour)) VNĐ
+        </td>
+    </tr>
+
 </table>
 
-@*<div class="form-group">
-        <div class="right">
-            Tổng chi phí: @String.Format("{0:0,0}", Model.Sum(i => i.GiaDonTour)) VNĐ
-        </div>
-    </div>*@
+
+
 
 
 <div>
@@ -85,3 +129,5 @@
         @Html.ActionLink("Trở về trang chủ", "Index", "Home")
     </p>
 </div>
+
+

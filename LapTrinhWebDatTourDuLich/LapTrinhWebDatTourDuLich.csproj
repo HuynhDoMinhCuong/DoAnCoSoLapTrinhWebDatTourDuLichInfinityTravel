@@ -179,12 +179,12 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ChiTietDonTourController.cs" />
+    <Compile Include="Controllers\DanhSachGioiThieuTourController.cs" />
     <Compile Include="Controllers\DonTourController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiVanChuyenController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
-    <Compile Include="Controllers\ThanhToanController.cs" />
     <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -324,11 +324,16 @@
     <Content Include="Views\Shared\_LoginNguoiDung.cshtml" />
     <Content Include="Views\NguoiDung\Detail.cshtml" />
     <Content Include="Views\DonTour\ThanhToanTrucTuyen.cshtml" />
-    <Content Include="Views\ThanhToan\ListThanhToan.cshtml" />
-    <Content Include="Views\ThanhToan\Detail.cshtml" />
-    <Content Include="Views\ThanhToan\Create.cshtml" />
-    <Content Include="Views\ThanhToan\Edit.cshtml" />
-    <Content Include="Views\ThanhToan\Delete.cshtml" />
+    <Content Include="Views\ChiTietDonTour\Edit.cshtml" />
+    <Content Include="Views\DonTour\ListDonTour.cshtml" />
+    <Content Include="Views\DanhSachGioiThieuTour\DanhSachGioiThieuTour.cshtml" />
+    <Content Include="Views\DanhSachGioiThieuTour\GioiThieuTourDaNang4.cshtml" />
+    <Content Include="Views\DanhSachGioiThieuTour\GioiThieuTourNhaTrang1.cshtml" />
+    <Content Include="Views\DanhSachGioiThieuTour\GioiThieuTourNhaTrang2.cshtml" />
+    <Content Include="Views\DanhSachGioiThieuTour\GioiThieuTourDaLat3.cshtml" />
+    <Content Include="Views\DanhSachGioiThieuTour\GioiThieuTourDaNang5.cshtml" />
+    <Content Include="Views\DanhSachGioiThieuTour\GioiThieuTourQuyNhon6.cshtml" />
+    <Content Include="Views\DanhSachGioiThieuTour\GioiThieuTourHaNoi7.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

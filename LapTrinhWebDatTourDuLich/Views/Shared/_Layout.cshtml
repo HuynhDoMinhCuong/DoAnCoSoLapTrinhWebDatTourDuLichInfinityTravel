@@ -23,10 +23,13 @@
                 <ul class="nav navbar-nav">
 
                     @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
-                      <li>@Html.ActionLink("About", "About", "Home")</li>
-                      <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
 
                     <li>@Html.Partial("~/Views/DonTour/DonTourPartial.cshtml")</li>
+
+
+                    <li>@Html.ActionLink("DS giới thiệu tour", "DanhSachGioiThieuTour", "DanhSachGioiThieuTour")</li>
 
                     @if (Session["TaiKhoanDangNhap"] != null)
                     {
@@ -40,16 +43,16 @@
                     }
 
                     @*<li>
-                      <p></p>
-                        <div class="form-group form-inline">
-                        <input placeholder="Tìm kiếm tour"@Html.TextBox("TimKiemTour", "", new { @class="form-control"})/>
-                        <input type="submit" class="btn btn-default" value="Tìm kiếm"/>
-                        </div>
-                      </li>*@
+        <p></p>
+          <div class="form-group form-inline">
+          <input placeholder="Tìm kiếm tour"@Html.TextBox("TimKiemTour", "", new { @class="form-control"})/>
+          <input type="submit" class="btn btn-default" value="Tìm kiếm"/>
+          </div>
+        </li>*@
 
                     @*<li>@Html.ActionLink("Danh Sách Loại vận chuyển", "ListLoaiVanChuyen", "LoaiVanChuyen")</li>
-                      <li>@Html.ActionLink("Danh sách tour", "ListTour", "Tour")</li>
-                      <li>@Html.ActionLink("Chi tiết đơn tour", "ListChiTietDonTour", "ChiTietDonTour")</li>*@
+        <li>@Html.ActionLink("Danh sách tour", "ListTour", "Tour")</li>
+        <li>@Html.ActionLink("Chi tiết đơn tour", "ListChiTietDonTour", "ChiTietDonTour")</li>*@
 
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -76,7 +79,7 @@
 
     @RenderSection("upload", required: false)
 
-    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/Content/Site2.css")
 
 </body>
 </html>

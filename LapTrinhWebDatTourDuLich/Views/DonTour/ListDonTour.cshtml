@@ -1,0 +1,29 @@
+﻿@model IEnumerable<LapTrinhWebDatTourDuLich.Models.Table_DonTour>
+@{
+    ViewBag.Title = "ListDonTour";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách đơn tour</h2>
+
+
+<table class="table">
+    <tr>
+        <th> Mã đơn tour </th>
+        <th> Mã khách hàng </th>
+        <th> Ngày đặt tour </th>
+
+
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.MaDonTour)</td>
+            <td>@Html.DisplayFor(modelItem => item.MaKH)</td>
+
+            <td>@String.Format("{0:dd/MM/yyyy}", item.NgayDatTour)</td>
+
+        </tr>
+    }
+</table>
